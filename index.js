@@ -1,13 +1,12 @@
-// const express = require("express");
-import express from "express";
-import routes from "./src/routes/routes";
+import express from 'express';
 
 const app = express();
 const PORT = 4000;
 
-routes(app);
+//use route with regular route function and app.route
+//route(app);
 
-app.get("/", (req, res) =>
-  res.send(`Node and express server is running on port: ${PORT}`)
-);
+//use app.use with router = express.Router();
+app.use('/contact', require('./src/routes/routerRoutes'));
+
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
