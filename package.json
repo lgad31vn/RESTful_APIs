@@ -1,0 +1,26 @@
+{
+  "name": "restful_api",
+  "version": "1.0.0",
+  "description": "Basic restful api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgad31vn/RESTful_APIs.git"
+  },
+  "author": "Logan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lgad31vn/RESTful_APIs/issues"
+  },
+  "homepage": "https://github.com/lgad31vn/RESTful_APIs#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "mongodb": "^4.2.2",
+    "mongoose": "^6.1.4",
+    "nodemon": "^2.0.15"
+  }
+}
