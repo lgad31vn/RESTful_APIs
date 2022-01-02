@@ -57,3 +57,18 @@ export const getContactWithID = async (req, res) => {
     res.status(500).send('Server Error');
   }
 };
+
+// update contact
+export const updateContact = async (req, res) => {
+  try {
+    const contact = await Contact.findOneAndUpdate(
+      { _id: req.params.contactID }, // _id of the contact should match the contactID from the url
+      { $set: req.body }, // set to new information
+      { new: true, useFindAndModify: false } // "new" tells MongoDB to return the new updated object, not the old one
+    );
+    res.json(contact);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+};

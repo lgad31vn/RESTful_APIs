@@ -5,6 +5,7 @@ import {
   addNewContact,
   getContacts,
   getContactWithID,
+  updateContact,
 } from '../controllers/controllers';
 
 // @route: GET /contact
@@ -33,9 +34,7 @@ router.post('/', addNewContact);
 // @route: PUT /contact/:id
 // @desc: test
 // @access: PUBLIC
-router.put('/:id', (req, res) => {
-  res.send(`PUT request sucessful with id = ${req.params.id}`);
-});
+router.put('/:contactID', updateContact);
 
 // @route: DELETE /contact/:id
 // @desc: test
