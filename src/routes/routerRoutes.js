@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import { addNewContact } from '../controllers/controllers';
+import { addNewContact, getContacts } from '../controllers/controllers';
 
 // @route: GET /contact
 // @desc: test
@@ -13,9 +13,7 @@ router.get(
     console.log(`Req type: ${req.method}`);
     next();
   },
-  (req, res) => {
-    res.send('GET request successful!');
-  }
+  getContacts
 );
 
 // @route: PUT /contact

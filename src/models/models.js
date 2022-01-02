@@ -26,6 +26,3 @@ export const ContactSchema = new Schema({
     default: Date.now,
   },
 });
-// Create Contact constructor to create new contacts in the db
-// and leveraging the ContactSchema as the model for new contacts
-// module.exports = Contact = mongoose.model('Contact', ContactSchema); //export and contruct at the same time
