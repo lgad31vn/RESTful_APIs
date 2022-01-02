@@ -4,6 +4,7 @@ import { ContactSchema } from '../models/models';
 // Create Contact constructor to create new contacts in the db
 // and leveraging the ContactSchema as the model for new contacts
 const Contact = mongoose.model('ContactLists', ContactSchema); //Contact database has the ContactSchema schema
+// 'ContactLists' is going to be the name of the new collection
 
 // get all contacts
 export const getContacts = async (req, res) => {

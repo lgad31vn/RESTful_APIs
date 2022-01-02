@@ -19,4 +19,7 @@ app.use(express.json()); //works like body-parser to parse the request into lang
 app.use('/contact', require('./src/routes/routerRoutes'));
 // routes(app);
 
+//Serveing static files images, pdf, ...
+app.use(express.static('public'));
+
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
