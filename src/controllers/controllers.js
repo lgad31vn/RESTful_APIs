@@ -3,7 +3,7 @@ import { ContactSchema } from '../models/models';
 
 // Create Contact constructor to create new contacts in the db
 // and leveraging the ContactSchema as the model for new contacts
-const Contact = mongoose.model('Contact', ContactSchema); //Contact database has the ContactSchema schema
+const Contact = mongoose.model('ContactLists', ContactSchema); //Contact database has the ContactSchema schema
 
 // get all contacts
 export const getContacts = async (req, res) => {
@@ -67,6 +67,17 @@ export const updateContact = async (req, res) => {
       { new: true, useFindAndModify: false } // "new" tells MongoDB to return the new updated object, not the old one
     );
     res.json(contact);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+};
+
+// delete contact
+export const deleteContact = async (req, res) => {
+  try {
+    await Contact.remove({ _id: req.params.contactID });
+    res.json({ message: 'successfully deleted contact' });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server Error');

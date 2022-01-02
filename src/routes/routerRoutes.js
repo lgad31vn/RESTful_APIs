@@ -6,20 +6,13 @@ import {
   getContacts,
   getContactWithID,
   updateContact,
+  deleteContact,
 } from '../controllers/controllers';
 
 // @route: GET /contact
 // @desc: test
 // @access: PUBLIC
-router.get(
-  '/',
-  (req, res, next) => {
-    console.log(`Req from: ${req.originalUrl}`);
-    console.log(`Req type: ${req.method}`);
-    next();
-  },
-  getContacts
-);
+router.get('/', getContacts);
 
 // @route: GET /contact/:contactID
 // @desc: test
@@ -39,8 +32,6 @@ router.put('/:contactID', updateContact);
 // @route: DELETE /contact/:id
 // @desc: test
 // @access: PUBLIC
-router.delete('/:id', (req, res) => {
-  res.send(`DELETE successful with id = ${req.params.id}`);
-});
+router.delete('/:contactID', deleteContact);
 
 module.exports = router;
