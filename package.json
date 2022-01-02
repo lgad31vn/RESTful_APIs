@@ -19,6 +19,7 @@
   "homepage": "https://github.com/lgad31vn/RESTful_APIs#readme",
   "dependencies": {
     "body-parser": "^1.19.1",
+    "config": "^3.3.6",
     "express": "^4.17.2",
     "mongodb": "^4.2.2",
     "mongoose": "^6.1.4",

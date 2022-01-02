@@ -1,19 +1,27 @@
 import express from 'express';
 const router = express.Router();
 
+import { addNewContact } from '../controllers/controllers';
+
 // @route: GET /contact
 // @desc: test
 // @access: PUBLIC
-router.get('/', (req, res) => {
-  res.send('GET request successful!');
-});
+router.get(
+  '/',
+  (req, res, next) => {
+    console.log(`Req from: ${req.originalUrl}`);
+    console.log(`Req type: ${req.method}`);
+    next();
+  },
+  (req, res) => {
+    res.send('GET request successful!');
+  }
+);
 
 // @route: PUT /contact
 // @desc: test
 // @access: PUBLIC
-router.post('/', (req, res) => {
-  res.send('POST request successful!');
-});
+router.post('/', addNewContact);
 
 // @route: PUT /contact/:id
 // @desc: test
