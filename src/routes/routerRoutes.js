@@ -1,7 +1,11 @@
 import express from 'express';
 const router = express.Router();
 
-import { addNewContact, getContacts } from '../controllers/controllers';
+import {
+  addNewContact,
+  getContacts,
+  getContactWithID,
+} from '../controllers/controllers';
 
 // @route: GET /contact
 // @desc: test
@@ -15,6 +19,11 @@ router.get(
   },
   getContacts
 );
+
+// @route: GET /contact/:contactID
+// @desc: test
+// @access: PUBLIC
+router.get('/:contactID', getContactWithID);
 
 // @route: PUT /contact
 // @desc: test

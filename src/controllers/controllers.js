@@ -26,10 +26,15 @@ export const getContacts = async (req, res) => {
 
 // add new contact
 export const addNewContact = async (req, res) => {
-  let newContact = new Contact(req.body);
+  try {
+    let newContact = new Contact(req.body);
 
-  const contact = await newContact.save();
-  res.json(contact);
+    const contact = await newContact.save();
+    res.json(contact);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 
   //   let newContact = new Contact(req.body);
 
@@ -43,6 +48,12 @@ export const addNewContact = async (req, res) => {
 };
 
 // get contact with id
-export const getContactWithID = (req, res) => {
-  Contact.findById(req.params.contactID);
+export const getContactWithID = async (req, res) => {
+  try {
+    const contactByID = await Contact.findById(req.params.contactID);
+    res.json(contactByID);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 };
